@@ -4,6 +4,7 @@ class CreateCoaches < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :age
       t.integer :years_as_head_coach
+      t.integer :team
     end
   end
 end
