@@ -91,13 +91,23 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play?'
-                where_do_we_play_method(team_menu_choice)
-                puts "11111"
-                # welcome_menu
+                puts ""
+                puts where_do_we_play_method(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium(team_menu_choice)
+                puts ""
+                puts what_the_stadium(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == "What division are we in?"
-                teams_division(team2)
+                puts ""
+                puts teams_division(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -111,12 +121,24 @@ class Cli
                 menu.choice 'What division are we in?'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Where do we play'
-                where_do_we_play_method(team1)
+            if team_stats == 'Where do we play?'
+                puts ""
+                puts where_do_we_play_method(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium(team1)
+                puts ""
+                puts what_the_stadium(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == "What division are we in?"
-                teams_division(team1)
+                puts ""
+                puts teams_division(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -130,12 +152,24 @@ class Cli
                 menu.choice 'What division are we in?'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Where do we play'
-                where_do_we_play_method(team3)
+            if team_stats == 'Where do we play?'
+                puts ""
+                puts where_do_we_play_method(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium(team3)
+                puts ""
+                puts what_the_stadium(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == "What division are we in?"
-                teams_division(team3)
+                puts ""
+                puts teams_division(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -149,12 +183,24 @@ class Cli
                 menu.choice 'What division are we in?'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Where do we play'
-                where_do_we_play_method(team4)
+            if team_stats == 'Where do we play?'
+                puts ""
+                puts where_do_we_play_method(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium(team4)
+                puts ""
+                puts what_the_stadium(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == "What division are we in?"
-                teams_division(team4)
+                puts ""
+                puts teams_division(team_menu_choice)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -180,9 +226,17 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method(team2)
+                puts ""
+                puts top_players_method(team_stats)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Check out the whole team!'
-                all_players_method(team2)
+                puts ""
+                puts all_players_method(team_stats)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -196,9 +250,17 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method(team1)
+                puts ""
+                puts top_players_method(team_stats)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Check out the whole team!'
-                all_players_method(team1)
+                puts ""
+                puts all_players_method(team_stats)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -212,9 +274,14 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method(team3)
+                puts ""
+                puts top_players_method(team_stats)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Check out the whole team!'
-                all_players_method(team3)
+                puts ""
+                puts all_players_method(team_stats)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -228,9 +295,17 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method(team4)
+                puts ""
+                puts top_players_method(team_stats)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Check out the whole team!'
-                all_players_method(team4)
+                puts ""
+                puts all_players_method(team_stats)
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end            
@@ -308,22 +383,22 @@ class Cli
     end
     
     
-    
-    def what_the_stadium(team)
-        team.stadium
+    def what_the_stadium(team_menu_choice)
+        Team.all.find{|team| team.team_name == team_menu_choice}.stadium
     end
 
-    def teams_division(team)
-        team.division
+    def teams_division(team_menu_choice)
+        Team.all.find{|team| team.team_name == team_menu_choice}.division
     end
     
     
-    def top_players_method(team)
-    end
+    # def top_players_method(team_stats)
+    #     Player.all.find {|player| player}
+    # end
 
-    def all_players_method(team)
-        team.players.all
-    end
+    # def all_players_method(team_stats)
+    #     Player.all.where(team_stats == team.name)
+    # end
 
 
 
