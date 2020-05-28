@@ -2,8 +2,44 @@ class Cli
     
 
     def welcome
+        puts "Welcome to The FIHL (The Flat Iron Hockey League)!!!".colorize(:blue)
+        puts "".colorize(:black)
+        puts "
+        888                     888                      
+        888                     888                      
+        888                     888                      
+        88888b.  .d88b.  .d8888b888  888 .d88b. 888  888 
+        888 `88bd88``88bd88P`   888 .88Pd8P  Y8b888  888 
+        888  888888  888888     888888K 88888888888  888 
+        888  888Y88..88PY88b.   888 `88bY8b.    Y88b 888 
+        888  888 `Y88P`  `Y8888P888  888 `Y8888  `Y88888 
+                                                     888 
+                                                Y8b d88P 
+                                                 `Y88P`  
+                    ||||||
+                   /      \             
+                  | o   o |
+                  |   o   |
+                  | |___| |
+                  \_______/
+                _____| |______
+               |              |
+               |  |        |  |
+               |  |        |  |      //
+               |  |        |  |     //
+               |  |========|  |======
+                \__/        \__/
+                  |        |
+                  |   ||   |
+                  |   ||   |
+                  |   ||   |
+                  ##  ||  ##
+               ___|#  ||  #|____
+               |  #   ||   #   |
+               |______||_______|
+               |_|_|__||_|_|_|_|
+        ".colorize(:cyan)
         puts ""
-        puts "Welcome to The FHL (The Flatiron Hockey League)!!!"
     end
     
     def would_you_like_to
