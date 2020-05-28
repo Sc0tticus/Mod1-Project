@@ -7,7 +7,7 @@ class Cli
     end
     
     def would_you_like_to
-        prompt = TTY::Prompt.new
+        prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts ""
         welcome_menu = prompt.select("Would you like too...") do |menu|
             menu.choice 'Get Team Information'
@@ -32,7 +32,7 @@ class Cli
 
     def team_information_menu
         puts ""
-        prompt = TTY::Prompt.new
+        prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts 'Welcome to team information!'
         puts ""
         team_menu_choice = prompt.select("Please select your team") do |menu|
@@ -52,11 +52,12 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play'
-                where_do_we_play_method
+                where_do_we_play_method(team2)
+                welcome_menu
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium
+                what_the_stadium(team2)
             elsif team_stats == "What division are we in?"
-                teams_division
+                teams_division(team2)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -71,11 +72,11 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play'
-                where_do_we_play_method
+                where_do_we_play_method(team1)
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium
+                what_the_stadium(team1)
             elsif team_stats == "What division are we in?"
-                teams_division
+                teams_division(team1)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -90,11 +91,11 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play'
-                where_do_we_play_method
+                where_do_we_play_method(team3)
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium
+                what_the_stadium(team3)
             elsif team_stats == "What division are we in?"
-                teams_division
+                teams_division(team3)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -109,11 +110,11 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play'
-                where_do_we_play_method
+                where_do_we_play_method(team4)
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium
+                what_the_stadium(team4)
             elsif team_stats == "What division are we in?"
-                teams_division
+                teams_division(team4)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -121,7 +122,7 @@ class Cli
     end
         
     def player_information_menu
-        prompt = TTY::Prompt.new
+        prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts 'Welcome to player information!'
         player_info_menu = prompt.select("Please select your team") do |menu|
             menu.choice 'Boulder Blizzards'
@@ -139,9 +140,9 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method
+                top_players_method(team2)
             elsif team_stats == 'Check out the whole team!'
-                all_players_method
+                all_players_method(team2)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -155,9 +156,9 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method
+                top_players_method(team1)
             elsif team_stats == 'Check out the whole team!'
-                all_players_method
+                all_players_method(team1)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -171,9 +172,9 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method
+                top_players_method(team3)
             elsif team_stats == 'Check out the whole team!'
-                all_players_method
+                all_players_method(team3)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -187,9 +188,9 @@ class Cli
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Top Players by PPG (points per game)'
-                top_players_method
+                top_players_method(team4)
             elsif team_stats == 'Check out the whole team!'
-                all_players_method
+                all_players_method(team4)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end            
@@ -198,7 +199,7 @@ class Cli
 
     def join_a_team_menu
         puts ""
-        prompt = TTY::Prompt.new
+        prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts 'You think you have what it takes to skate with us?!'
         puts ""
         join_team_menu = prompt.select("Please select your team") do |menu|
@@ -211,40 +212,68 @@ class Cli
             puts ""
             puts 'You think you want to be a Blizzard?!'
             puts ""
-            puts 'What is your name skater?'
+            prompt.collect do 
+                key(:name).ask('What is your name skater?')
+                key(:age).ask('How old are you?')
+                key(:position).ask('What postion do you play?')
+            end
+            # Player.new(name: '#{name}', age: '#{age}')
         elsif join_team_menu == 'Aurora Aces'
             puts ""
             puts 'You think you want to be one of the Aces?!'
             puts ""
-            puts 'What is your name skater?'
-        elsif join_a_team_menu == 'Colorado Springs Cave Dwellers'
+            prompt.collect do 
+                key(:name).ask('What is your name skater?')
+                key(:age).ask('How old are you?')
+                key(:position).ask('What postion do you play?')
+            end
+        elsif join_team_menu == 'Colorado Springs Cave Dwellers'
             puts ""
             puts 'You think you want to be a Cave Dweller?!'
             puts ""
-            puts 'What is your name skater?'
-        elsif join_a_team_menu == 'Fort Collins Freakshow'
+            prompt.collect do
+                key(:name).ask('What is your name skater?')
+                key(:age).ask('How old are you?')
+                key(:position).ask('What postion do you play?')
+            end
+        elsif join_team_menu == 'Fort Collins Freakshow'
             puts ""
-            puts 'You think you want to be a Blizzard?!'
+            puts 'You think you want to be a Freakshow?!'
             puts ""
-            puts 'What is your name skater?'
+            prompt.collect do 
+                key(:name).ask('What is your name skater?')
+                key(:age).ask('How old are you?')
+                key(:position).ask('What postion do you play?')
+            end
         end
     end
 
     def leave_a_team_menu
+        prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts ""
         puts 'You just couldnt cut it could you?'
         puts ""
-        puts 'What is your name skater?'
+        prompt.collect do 
+            key(:name).ask('What is your name skater?')
+        end
+        puts ""
+        prompt.yes?('Are you sure you want to hang up the skates?')
+        puts ""
+        puts '#{:name}, you have been removed from your team.'
+        would_you_like_to
     end
 
     def where_do_we_play_method(team)
+        team.location
     end
 
     
     def what_the_stadium(team)
+        team.stadium
     end
 
     def teams_division(team)
+        team.division
     end
     
     
@@ -252,7 +281,10 @@ class Cli
     end
 
     def all_players_method(team)
+        team.players.all
     end
+
+
 
 
 
