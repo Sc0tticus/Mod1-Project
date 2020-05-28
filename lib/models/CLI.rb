@@ -1,21 +1,24 @@
-class Cli
+require 'pry'
+class Cli 
     
 
     def welcome
-        puts "Welcome to The FIHL (The Flat Iron Hockey League)!!!".colorize(:blue)
+        puts ""
+        puts ""
+        puts "Welcome to The FHL (The Flatiron Hockey League)!!!".colorize(:blue)
         puts "".colorize(:black)
         puts "
-        888                     888                      
-        888                     888                      
-        888                     888                      
-        88888b.  .d88b.  .d8888b888  888 .d88b. 888  888 
-        888 `88bd88``88bd88P`   888 .88Pd8P  Y8b888  888 
-        888  888888  888888     888888K 88888888888  888 
-        888  888Y88..88PY88b.   888 `88bY8b.    Y88b 888 
-        888  888 `Y88P`  `Y8888P888  888 `Y8888  `Y88888 
-                                                     888 
-                                                Y8b d88P 
-                                                 `Y88P`  
+        888                       888                      
+        888                       888                      
+        888                       888                      
+        88888b.  .d88b.  .d8888b  888  888  .d88b.    888  888 
+        888 `88b d88``88 bd88P`   888 .88P d8P  Y8b   888  888 
+        888  888 888  88 8888     888888K  88888888   888  888 
+        888  888 Y88..88 PY88b.   888 `88b  Y8b.      Y88b 888 
+        888  888 `Y88P`  `Y8888P8 888  88`Y  88888'    Y88888 
+                                                       888 
+                                                   Y8b d88P 
+                                                  `Y88P`  
                     ||||||
                    /      \             
                   | o   o |
@@ -87,11 +90,12 @@ class Cli
                 menu.choice 'What division are we in?'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Where do we play'
-                where_do_we_play_method(team2)
-                welcome_menu
+            if team_stats == 'Where do we play?'
+                where_do_we_play_method(team_menu_choice)
+                puts "11111"
+                # welcome_menu
             elsif team_stats == 'Whats our stadium called?'
-                what_the_stadium(team2)
+                what_the_stadium(team_menu_choice)
             elsif team_stats == "What division are we in?"
                 teams_division(team2)
             elsif team_stats == 'Back to Main Menu'
@@ -299,10 +303,11 @@ class Cli
         would_you_like_to
     end
 
-    def where_do_we_play_method(team)
-        team.location
+    def where_do_we_play_method(team_menu_choice)
+        Team.all.find{|team| team.team_name == team_menu_choice}.location
     end
-
+    
+    
     
     def what_the_stadium(team)
         team.stadium
