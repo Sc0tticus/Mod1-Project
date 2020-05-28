@@ -64,7 +64,9 @@ class Cli
         elsif welcome_menu == 'Leave a Team'
             leave_a_team_menu
         elsif welcome_menu == 'Exit'
-            puts "CHECK YA LATER EH!"
+            puts ""
+            puts "CHECK YA LATER EH!?"
+            puts ""
         end
     end
 
@@ -227,13 +229,13 @@ class Cli
             end
             if team_stats == 'Top Players by PPG (points per game)'
                 puts ""
-                puts top_players_method(team_stats)
+                puts top_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 would_you_like_to
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(team_stats)
+                puts all_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 would_you_like_to
@@ -251,13 +253,13 @@ class Cli
             end
             if team_stats == 'Top Players by PPG (points per game)'
                 puts ""
-                puts top_players_method(team_stats)
+                puts top_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 would_you_like_to
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(team_stats)
+                puts all_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 would_you_like_to
@@ -275,13 +277,13 @@ class Cli
             end
             if team_stats == 'Top Players by PPG (points per game)'
                 puts ""
-                puts top_players_method(team_stats)
+                puts top_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 would_you_like_to
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(team_stats)
+                puts all_players_method(player_info_menu)
             elsif team_stats == 'Back to Main Menu'
                 would_you_like_to
             end
@@ -296,13 +298,13 @@ class Cli
             end
             if team_stats == 'Top Players by PPG (points per game)'
                 puts ""
-                puts top_players_method(team_stats)
+                puts top_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 would_you_like_to
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(team_stats)
+                puts all_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 would_you_like_to
@@ -331,7 +333,12 @@ class Cli
                 key(:name).ask('What is your name skater?')
                 key(:age).ask('How old are you?')
                 key(:position).ask('What postion do you play?')
-            end
+                end
+                puts ""
+                puts 'Welcome to the Boulder Blizzards rookie, see you at practice!'
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
             # Player.new(name: '#{name}', age: '#{age}')
         elsif join_team_menu == 'Aurora Aces'
             puts ""
@@ -342,6 +349,11 @@ class Cli
                 key(:age).ask('How old are you?')
                 key(:position).ask('What postion do you play?')
             end
+            puts ""
+                puts 'Welcome to the Aurora Aces rookie, see you at practice!'
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
         elsif join_team_menu == 'Colorado Springs Cave Dwellers'
             puts ""
             puts 'You think you want to be a Cave Dweller?!'
@@ -351,6 +363,11 @@ class Cli
                 key(:age).ask('How old are you?')
                 key(:position).ask('What postion do you play?')
             end
+            puts ""
+                puts 'Welcome to the Colorado Springs Cave Dwellers rookie, see you at practice!'
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
         elsif join_team_menu == 'Fort Collins Freakshow'
             puts ""
             puts 'You think you want to be a Freakshow?!'
@@ -360,6 +377,11 @@ class Cli
                 key(:age).ask('How old are you?')
                 key(:position).ask('What postion do you play?')
             end
+            puts ""
+                puts 'Welcome to the Fort Collins Freakshow rookie, see you at practice!'
+                puts ""
+                puts 'What is next?'
+                would_you_like_to
         end
     end
 
@@ -371,10 +393,12 @@ class Cli
         prompt.collect do 
             key(:name).ask('What is your name skater?')
         end
+        # puts ""
+        # puts remove_from_team(:name)
         puts ""
         prompt.yes?('Are you sure you want to hang up the skates?')
         puts ""
-        puts '#{:name}, you have been removed from your team.'
+        puts 'Later chicken legs! You have been removed from your team.'
         would_you_like_to
     end
 
@@ -392,17 +416,23 @@ class Cli
     end
     
     
-    # def top_players_method(team_stats)
-    #     Player.all.find {|player| player}
+    def top_players_method(player_info_menu)
+        binding.pry
+        Player.all.select do |player|
+            if player_info_menu == Player.team
+            end
+        end
+    end
+
+    def all_players_method(player_info_menu)
+        Player.all.map do |team|
+        
+        end
+    end
+
+    # def remove_from_team(name)
+    #     Player.all.reject {|player| name == name}
     # end
-
-    # def all_players_method(team_stats)
-    #     Player.all.where(team_stats == team.name)
-    # end
-
-
-
-
 
 
 end
