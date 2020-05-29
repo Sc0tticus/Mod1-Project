@@ -8,7 +8,7 @@ class Cli
     def welcome
         puts ""
         puts ""
-        puts "Welcome to The FHL (The Flatiron Hockey League)!!!".colorize(:blue)
+        puts "Welcome to The FHL (The Flatiron Hockey League)!!!".colorize(:yellow)
         system 'say "Welcome to the F H L, the Flat Iron Hockey League"'
         system 'say "WE, WILL, WE, WILL, ROCK YOU"'
 
