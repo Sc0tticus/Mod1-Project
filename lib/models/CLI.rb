@@ -453,37 +453,43 @@ class Cli
         Team.all.find{|team| team.team_name == team_menu_choice}.division
     end
     
+    def find_team_from_name(player_info_menu)
+        #returns unique team id based on input team string
+        Team.all.find do |team|
+            team.team_name == player_info_menu
+        end
+    end
+
+    def players_from_team(player_info_menu)
+        #returns an array of all players that belond to a specific team (id)
+        team_id = find_team_from_name(player_info_menu).id
+       Player.where("team_id = #{team_id}")
+    end
+
+
+    def all_players_method(player_info_menu)
+        #returns an array of all players
+        players_from_team(player_info_menu).map do |player|
+            player.name
+        end
+    end
+
     
     def top_players_method(player_info_menu)
-        binding.pry
+        #binding.pry
         Player.all.select do |player|
             if player_info_menu == Player.team
             end
         end
     end
 
-    def all_players_method_aa(player_info_menu)
-        Team.first.players
+    def coaches_from_team(player_info_menu)
+        #returns an array of all players that belond to a specific team (id)
+        #binding.pry
+        team_id = find_team_from_name(player_info_menu).id
+       practice = Coach.where("team_id = #{team_id}")
+       binding.pry
     end
-   
-    def all_players_method_bb(player_info_menu)
-        Team.second.players
-    end
-
-    def all_players_method_cs(player_info_menu)
-        Team.third.players     
-    end
-
-    def all_players_method_fc(player_info_menu)
-        Team.last.players
-    end
-
-
-            
-            # def remove_from_team(name)
-    #     Player.all.reject {|player| name == name}
-    #  end
-
 
 end
 
