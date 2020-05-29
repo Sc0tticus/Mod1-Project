@@ -488,7 +488,7 @@ class Cli
         #binding.pry
         team_id = find_team_from_name(player_info_menu).id
        practice = Coach.where("team_id = #{team_id}")
-       binding.pry
+       #binding.pry
     end
 
 end
