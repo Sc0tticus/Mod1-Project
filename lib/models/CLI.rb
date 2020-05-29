@@ -9,6 +9,9 @@ class Cli
         puts ""
         puts ""
         puts "Welcome to The FHL (The Flatiron Hockey League)!!!".colorize(:blue)
+        system 'say "Welcome to the F H L, the Flat Iron Hockey League"'
+        system 'say "WE WILL WE WILL ROCK YOU"'
+
         puts "".colorize(:black)
         puts "
         888                       888                      
@@ -45,10 +48,14 @@ class Cli
                |______||_______|
                |_|_|__||_|_|_|_|
         ".colorize(:cyan)
+        
+        # intro_music
         puts ""
         create_name
+    
     end
     
+
     def create_name
         puts ""
         puts "What's your first name?"
@@ -57,6 +64,10 @@ class Cli
         @user = User.new(a_new_username)
         #new_user = User.new( username: a_new_username)
     end
+
+    # def intro_music
+    #     pid = fork{exec ‘afplay’, “lib/GoalSirenProdigyMusic.mp3”} 
+    # end
 
     def would_you_like_to
         prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
@@ -78,6 +89,7 @@ class Cli
             leave_a_team_menu
         elsif welcome_menu == 'Exit'
             puts ""
+            system 'say "Check you later ay!"'
             puts "CHECK YA LATER EH!?"
             puts ""
         end
@@ -102,6 +114,7 @@ class Cli
             leave_a_team_menu
         elsif welcome_menu == 'Exit'
             puts ""
+            system 'say "Check you later ay!"'
             puts "CHECK YA LATER EH!?"
             puts ""
         end
