@@ -1,20 +1,20 @@
-Flatiron School Hockey League (FHL)
+Flatiron School Hockey League (FHL):
 
 
 This is a CLI application that allows new or returning users to find out information about a fictitious hockey league (the FHL) that is comprised of players and coaches that are real-life students or instructors in our current cohort. Users have the ability to learn everything there is to know about the FHL including specifics about teams, players, and coaches. User can add or remove themselves from the FHL team of their choice.
 
-Motivation
+Motivation:
 
 We love the sport of hockey and decided to incorporate our love for this game into this repo which serves as the final project for our first "Module" in Flatiron School's Immersive Software Engineering Bootcamp in Denver.
 
 
-Built Using
+Built Using:
 
 Ruby 2.7.0/ Active Record 6.0 - on Mac OS Catalina / sqlite3 1.4 /  Sinatra 2.0
 
 
 
-How to use/open
+How to use/open:
 
 Fork and clone this repository, open in a code editor.
 
@@ -33,7 +33,7 @@ ruby runner.rb
 You should now see the welcome message to the FHL.
 (First type in your name to be added into the FHL.)
 
-Instructions / Walkthrough
+Instructions / Walkthrough:
 
 If new user, type the desired username and hit return/enter.
 For each menu that appears in the app, use the 'up' and 'down' keys to highlight an option, and then press return/enter to make a choice.
@@ -60,19 +60,19 @@ Exit
 
 This last option exits the application and returns you to your terminal's shell.
 
-Youtube Demo Link
+Youtube Demo Link:
 
-Youtube link to a screen recording of the app! (Link here)
+Youtube link to a screen recording of the app! https://www.youtube.com/watch?v=5WE4mMyAI54&feature=youtu.be
 
-Final Comments
+Final Comments:
 
 Thank you for opening and trying out the current version of the Flatiron Hockey League Cli app! Please understand this is our first ever programming project using any kind of code language and it may seem primitive at best. We will continue striving to improve the app and would love constructive feedback from all who have tested out the app!
 
 
-Creators/Collaborators
+Creators/Collaborators:
 Austin Evans - https://github.com/Austin-Vincelli-Evans
 Scott Singer - https://github.com/Sc0tticus
 
-Credits
+Credits:
 Thank you to https://www.asciiart.eu/sports-and-outdoors/ice-hockey for supplying the hockey ASCII art!
 
