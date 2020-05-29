@@ -1,6 +1,9 @@
 require 'pry'
 class Cli 
     
+    attr_accessor :user
+
+    Prompt = TTY::Prompt.new
 
     def welcome
         puts ""
@@ -43,12 +46,21 @@ class Cli
                |_|_|__||_|_|_|_|
         ".colorize(:cyan)
         puts ""
+        create_name
     end
     
+    def create_name
+        puts  " Welcome!"
+        puts "What's your name?"
+        a_new_username = gets.strip
+        @user = User.new(a_new_username)
+        #new_user = User.new( username: a_new_username)
+    end
+
     def would_you_like_to
         prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts ""
-        welcome_menu = prompt.select("Would you like too...") do |menu|
+        welcome_menu = prompt.select("Hi, #{@user.name}! What would you like to know about the FHL......?") do |menu|
             menu.choice 'Get Team Information'
             menu.choice 'Get Player Information'
             menu.choice 'Join a Team'
@@ -74,9 +86,9 @@ class Cli
     def team_information_menu
         puts ""
         prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
-        puts 'Welcome to team information!'
+        puts "Welcome, #{@user.name} to team information!"
         puts ""
-        team_menu_choice = prompt.select("Please select your team") do |menu|
+        team_menu_choice = prompt.select("#{@user.name}, please select your team") do |menu|
             menu.choice 'Boulder Blizzards'
             menu.choice 'Aurora Aces'
             menu.choice 'Colorado Springs Cave Dwellers'
@@ -86,7 +98,7 @@ class Cli
             puts ""
             puts "The Boulder Blizzards wipe out the competition!"
             puts ""
-            team_stats = prompt.select('What do you wanna know hoser?') do |menu|
+            team_stats = prompt.select("#{@user.name}, what do you wanna know hoser?") do |menu|
                 menu.choice 'Where do we play?'
                 menu.choice 'Whats our stadium called?'
                 menu.choice 'What division are we in?'
@@ -148,7 +160,7 @@ class Cli
             puts ""
             puts "The Colorado Springs Cave Dwellers leave the competition  in the dust!"
             puts ""
-            team_stats = prompt.select('What do you wanna know hoser?') do |menu|
+            team_stats = prompt.select("#{@user.name}! What do you wanna know hoser?") do |menu|
                 menu.choice 'Where do we play?'
                 menu.choice 'Whats our stadium called?'
                 menu.choice 'What division are we in?'
@@ -179,7 +191,7 @@ class Cli
             puts ""
             puts "The Fort Collins Freakshow eat the competition alive!"
             puts ""
-            team_stats = prompt.select('What do you wanna know hoser?') do |menu|
+            team_stats = prompt.select("#{@user.name}! What do you wanna know hoser?") do |menu|
                 menu.choice 'Where do we play?'
                 menu.choice 'Whats our stadium called?'
                 menu.choice 'What division are we in?'
@@ -212,7 +224,7 @@ class Cli
     def player_information_menu
         prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts 'Welcome to player information!'
-        player_info_menu = prompt.select("Please select your team") do |menu|
+        player_info_menu = prompt.select("#{@user.name}. Please select your team") do |menu|
             menu.choice 'Boulder Blizzards'
             menu.choice 'Aurora Aces'
             menu.choice 'Colorado Springs Cave Dwellers'
@@ -222,7 +234,7 @@ class Cli
             puts ""
             puts "The Boulder Blizzards wipe out the competition!"
             puts ""
-            team_stats = prompt.select('What do you wanna know hoser?') do |menu|
+            team_stats = prompt.select("#{@user.name}! What do you wanna know hoser?") do |menu|
                 menu.choice 'Top Players by PPG (points per game)'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
@@ -246,7 +258,7 @@ class Cli
             puts ""
             puts "The Aurora Aces smoke the competition!"
             puts ""
-            team_stats = prompt.select('What do you wanna know hoser?') do |menu|
+            team_stats = prompt.select("#{@user.name}! What do you wanna know hoser?") do |menu|
                 menu.choice 'Top Players by PPG (points per game)'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
@@ -270,7 +282,7 @@ class Cli
             puts ""
             puts  "The Colorado Springs Cave Dwellers leave the competition  in the dust!"
             puts ""
-            team_stats = prompt.select('What do you wanna know hoser?') do |menu|
+            team_stats = prompt.select("#{@user.name}! What do you wanna know hoser?") do |menu|
                 menu.choice 'Top Players by PPG (points per game)'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
@@ -291,7 +303,7 @@ class Cli
             puts ""
             puts "The Fort Collins Freakshow eat the competition alive!"
             puts ""
-            team_stats = prompt.select('What do you wanna know hoser?') do |menu|
+            team_stats = prompt.select("#{@user.name}! What do you wanna know hoser?") do |menu|
                 menu.choice 'Top Players by PPG (points per game)'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
@@ -319,7 +331,7 @@ class Cli
         prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
         puts 'You think you have what it takes to skate with us?!'
         puts ""
-        join_team_menu = prompt.select("Please select your team") do |menu|
+        join_team_menu = prompt.select("#{@user.name}! Please select your team") do |menu|
             menu.choice 'Boulder Blizzards'
             menu.choice 'Aurora Aces'
             menu.choice 'Colorado Springs Cave Dwellers'
