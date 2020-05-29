@@ -126,6 +126,7 @@ class Cli
                 menu.choice 'Where do we play?'
                 menu.choice 'Whats our stadium called?'
                 menu.choice 'What division are we in?'
+                menu.choice 'Who is the coach?'
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play?'
@@ -143,6 +144,12 @@ class Cli
             elsif team_stats == "What division are we in?"
                 puts ""
                 puts teams_division(team_menu_choice).colorize(:cyan)
+                puts ""
+                puts 'What is next?'
+                what_else
+            elsif team_stats == 'Who is the coach?'
+                puts ""
+                puts coaches_from_team(team_menu_choice)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -157,6 +164,7 @@ class Cli
                 menu.choice 'Where do we play?'
                 menu.choice 'Whats our stadium called?'
                 menu.choice 'What division are we in?'
+                menu.choice 'Who is the coach?'
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play?'
@@ -174,6 +182,12 @@ class Cli
             elsif team_stats == "What division are we in?"
                 puts ""
                 puts teams_division(team_menu_choice).colorize(:cyan)
+                puts ""
+                puts 'What is next?'
+                what_else
+            elsif team_stats == 'Who is the coach?'
+                puts ""
+                puts coaches_from_team(team_menu_choice)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -188,6 +202,7 @@ class Cli
                 menu.choice 'Where do we play?'
                 menu.choice 'Whats our stadium called?'
                 menu.choice 'What division are we in?'
+                menu.choice 'Who is the coach?'
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play?'
@@ -205,6 +220,12 @@ class Cli
             elsif team_stats == "What division are we in?"
                 puts ""
                 puts teams_division(team_menu_choice).colorize(:cyan)
+                puts ""
+                puts 'What is next?'
+                what_else
+            elsif team_stats == 'Who is the coach?'
+                puts ""
+                puts coaches_from_team(team_menu_choice)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -219,6 +240,7 @@ class Cli
                 menu.choice 'Where do we play?'
                 menu.choice 'Whats our stadium called?'
                 menu.choice 'What division are we in?'
+                menu.choice 'Who is the coach?'
                 menu.choice 'Back to Main Menu'
             end
             if team_stats == 'Where do we play?'
@@ -236,6 +258,12 @@ class Cli
             elsif team_stats == "What division are we in?"
                 puts ""
                 puts teams_division(team_menu_choice).colorize(:cyan)
+                puts ""
+                puts 'What is next?'
+                what_else
+            elsif team_stats == 'Who is the coach?'
+                puts ""
+                puts coaches_from_team(team_menu_choice)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -261,11 +289,11 @@ class Cli
             puts "The Boulder Blizzards wipe out the competition!"
             puts ""
             team_stats = prompt.select("#{@user.name}! What do you wanna know you hoser?") do |menu|
-                menu.choice 'Top Players by PPG (points per game)'
+                menu.choice 'Top Player by total points!'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Top Players by PPG (points per game)'
+            if team_stats == 'Top Player by total points!'
                 puts ""
                 puts top_players_method(player_info_menu)
                 puts ""
@@ -273,7 +301,7 @@ class Cli
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method_bb(player_info_menu)
+                puts all_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -285,19 +313,19 @@ class Cli
             puts "The Aurora Aces smoke the competition!"
             puts ""
             team_stats = prompt.select("#{@user.name}! What do you wanna know you hoser?") do |menu|
-                menu.choice 'Top Players by PPG (points per game)'
+                menu.choice 'Top Player by total points!'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Top Players by PPG (points per game)'
+            if team_stats == 'Top Player by total points!'
                 puts ""
-                puts top_players_method_aa(player_info_menu)
+                puts top_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method_aa(player_info_menu)
+                puts all_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -309,11 +337,11 @@ class Cli
             puts  "The Colorado Springs Cave Dwellers leave the competition  in the dust!"
             puts ""
             team_stats = prompt.select("#{@user.name}! What do you wanna know you hoser?") do |menu|
-                menu.choice 'Top Players by PPG (points per game)'
+                menu.choice 'Top Player by total points!'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Top Players by PPG (points per game)'
+            if team_stats == 'Top Player by total points!'
                 puts ""
                 puts top_players_method(player_info_menu)
                 puts ""
@@ -321,7 +349,10 @@ class Cli
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method_cs(player_info_menu)
+                puts all_players_method(player_info_menu)
+                puts ""
+                puts 'What is next?'
+                what_else
             elsif team_stats == 'Back to Main Menu'
                 what_else
             end
@@ -330,11 +361,11 @@ class Cli
             puts "The Fort Collins Freakshow eat the competition alive!"
             puts ""
             team_stats = prompt.select("#{@user.name}! What do you wanna know you hoser?") do |menu|
-                menu.choice 'Top Players by PPG (points per game)'
+                menu.choice 'Top Player by total points!'
                 menu.choice 'Check out the whole team!'
                 menu.choice 'Back to Main Menu'
             end
-            if team_stats == 'Top Players by PPG (points per game)'
+            if team_stats == 'Top Player by total points!'
                 puts ""
                 puts top_players_method(player_info_menu)
                 puts ""
@@ -342,7 +373,7 @@ class Cli
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method_fc(player_info_menu)
+                puts all_players_method(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -373,7 +404,7 @@ class Cli
                 key(:position).ask('What postion do you play?')
                 end
                 puts ""
-                puts "Welcome to the Boulder Blizzards #{@user.name}, see you at practice!"
+                puts "Welcome to the Boulder Blizzards #{@user.name.upcase.colorize(:cyan)}, see you at practice!"
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -388,7 +419,7 @@ class Cli
                 key(:position).ask('What postion do you play?')
             end
             puts ""
-                puts "Welcome to the Aurora Aces #{@user.name}, see you at practice!"
+                puts "Welcome to the Aurora Aces #{@user.name.upcase.colorize(:cyan)}, see you at practice!"
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -402,7 +433,7 @@ class Cli
                 key(:position).ask('What postion do you play?')
             end
             puts ""
-                puts "Welcome to the Colorado Springs Cave Dwellers #{@user.name}, see you at practice!"
+                puts "Welcome to the Colorado Springs Cave Dwellers #{@user.name.upcase.colorize(:cyan)}, see you at practice!"
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -416,7 +447,7 @@ class Cli
                 key(:position).ask('What postion do you play?')
             end
             puts ""
-                puts "Welcome to the Fort Collins Freakshow #{@user.name}, see you at practice!"
+                puts "Welcome to the Fort Collins Freakshow #{@user.name.upcase.colorize(:cyan)}, see you at practice!"
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -474,21 +505,22 @@ class Cli
         end
     end
 
-    
-    def top_players_method(player_info_menu)
-        #binding.pry
-        Player.all.select do |player|
-            if player_info_menu == Player.team
-            end
+    def top_players_method(player_info_menu) #find_team_from_name helper method
+        player_with_most_avg_num_points = players_from_team(player_info_menu).reduce do |player_most, player|
+         player_most.avg_num_points > player.avg_num_points ? player_most : player 
         end
-    end
-
-    def coaches_from_team(player_info_menu)
+        puts "#{player_with_most_avg_num_points.name} is #{player_info_menu}'s' top player!"
+        puts "#{player_with_most_avg_num_points.avg_num_points} points scored this year!"
+     end
+  
+     def coaches_from_team(player_info_menu)
         #returns an array of all players that belond to a specific team (id)
         #binding.pry
         team_id = find_team_from_name(player_info_menu).id
        practice = Coach.where("team_id = #{team_id}")
-       #binding.pry
+       puts "#{practice.first.name.colorize(:cyan)} is the head coach for #{player_info_menu}!"
+       puts ""
+       puts "#{practice.first.name.colorize(:cyan)} has coached the #{player_info_menu} for #{practice.first.years_as_coach} years."
     end
 
 end
