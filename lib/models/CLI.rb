@@ -273,7 +273,7 @@ class Cli
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(player_info_menu)
+                puts all_players_method_bb(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -291,13 +291,13 @@ class Cli
             end
             if team_stats == 'Top Players by PPG (points per game)'
                 puts ""
-                puts top_players_method(player_info_menu)
+                puts top_players_method_aa(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(player_info_menu)
+                puts all_players_method_aa(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -321,7 +321,7 @@ class Cli
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(player_info_menu)
+                puts all_players_method_cs(player_info_menu)
             elsif team_stats == 'Back to Main Menu'
                 what_else
             end
@@ -342,7 +342,7 @@ class Cli
                 what_else
             elsif team_stats == 'Check out the whole team!'
                 puts ""
-                puts all_players_method(player_info_menu)
+                puts all_players_method_fc(player_info_menu)
                 puts ""
                 puts 'What is next?'
                 what_else
@@ -462,15 +462,27 @@ class Cli
         end
     end
 
-    def all_players_method(player_info_menu)
-        Player.all.map do |team|
-        
-        end
+    def all_players_method_aa(player_info_menu)
+        Team.first.players
+    end
+   
+    def all_players_method_bb(player_info_menu)
+        Team.second.players
     end
 
-    # def remove_from_team(name)
+    def all_players_method_cs(player_info_menu)
+        Team.third.players     
+    end
+
+    def all_players_method_fc(player_info_menu)
+        Team.last.players
+    end
+
+
+            
+            # def remove_from_team(name)
     #     Player.all.reject {|player| name == name}
-    # end
+    #  end
 
 
 end
