@@ -1,5 +1,4 @@
 require_relative 'config/environment'
-# puts "Welcome to the FSHL!"
 
 my_app = Cli.new
 

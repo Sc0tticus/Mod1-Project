@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class Cli 
     
     attr_accessor :user
@@ -10,7 +10,7 @@ class Cli
         puts ""
         puts "Welcome to The FHL (The Flatiron Hockey League)!!!".colorize(:blue)
         system 'say "Welcome to the F H L, the Flat Iron Hockey League"'
-        system 'say "WE WILL WE WILL ROCK YOU"'
+        system 'say "WE, WILL, WE, WILL, ROCK YOU"'
 
         puts "".colorize(:black)
         puts "
@@ -48,26 +48,19 @@ class Cli
                |______||_______|
                |_|_|__||_|_|_|_|
         ".colorize(:cyan)
-        
-        # intro_music
         puts ""
         create_name
     
     end
     
-
     def create_name
         puts ""
-        puts "What's your first name?"
+        puts "What's your name?"
         puts ""
         a_new_username = gets.strip
         @user = User.new(a_new_username)
-        #new_user = User.new( username: a_new_username)
     end
 
-    # def intro_music
-    #     pid = fork{exec ‘afplay’, “lib/GoalSirenProdigyMusic.mp3”} 
-    # end
 
     def would_you_like_to
         prompt = TTY::Prompt.new(active_color: :cyan, symbols: {marker: '(*)'})
@@ -421,7 +414,6 @@ class Cli
                 puts ""
                 puts 'What is next?'
                 what_else
-            # Player.new(name: '#{name}', age: '#{age}')
         elsif join_team_menu == 'Aurora Aces'
             puts ""
             puts 'You think you want to be one of the Aces?!'
@@ -475,8 +467,6 @@ class Cli
         prompt.collect do 
             key(:name).ask('What is your full name skater?')
         end
-        # puts ""
-        # puts remove_from_team(:name)
         puts ""
         prompt.yes?('Are you sure you want to hang up the skates?')
         puts ""
@@ -522,13 +512,12 @@ class Cli
         player_with_most_avg_num_points = players_from_team(player_info_menu).reduce do |player_most, player|
          player_most.avg_num_points > player.avg_num_points ? player_most : player 
         end
-        puts "#{player_with_most_avg_num_points.name} is #{player_info_menu}'s' top player!"
+        puts "#{player_with_most_avg_num_points.name.colorize(:cyan)} is #{player_info_menu}'s' top player!"
         puts "#{player_with_most_avg_num_points.avg_num_points} points scored this year!"
      end
   
      def coaches_from_team(player_info_menu)
         #returns an array of all players that belond to a specific team (id)
-        #binding.pry
         team_id = find_team_from_name(player_info_menu).id
        practice = Coach.where("team_id = #{team_id}")
        puts "#{practice.first.name.colorize(:cyan)} is the head coach for #{player_info_menu}!"
