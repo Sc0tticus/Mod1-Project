@@ -47,7 +47,7 @@ class Cli
                |  #   ||   #   |
                |______||_______|
                |_|_|__||_|_|_|_|
-        ".colorize(:cyan)
+        ".colorize(:blue)
         puts ""
         create_name
     
